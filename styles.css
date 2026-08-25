@@ -391,3 +391,29 @@ button[type="submit"]:hover {
 .btn-flotante.ig {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
+
+/* Desplazamiento suave al hacer clic en los enlaces del menú */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Formato y espaciado del menú */
+.menu-navegacion {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.menu-navegacion a {
+    color: #880e4f;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-navegacion a:hover {
+    background-color: #fce4ec;
+    color: #e91e63;
+}
