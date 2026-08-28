@@ -1,46 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
-    const formulario = document.getElementById("formulario-contacto");
+document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    if (formulario) {
-        
-        formulario.addEventListener("submit", (e) => {
-            e.preventDefault(); 
+    const serviceID = 'service_z1o6u3y'; 
+    const templateID = 'template_frf2lkk'; 
 
-            const nombre = document.getElementById("nombre").value.trim();
-            const telefono = document.getElementById("telefono").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const productoSelect = document.getElementById("producto-interes");
-            const producto = productoSelect.options[productoSelect.selectedIndex].text;
-            const mensaje = document.getElementById("mensa
-            const btnSubmit = formulario.querySelector("button[type='submit']");
-            if (btnSubmit) btnSubmit.innerText = "Enviando...";
-
-            const templateParams = {
-                nombre: nombre,
-                telefono: telefono,
-                email: email,
-                producto: producto,
-                mensaje: mensaje || "Sin detalles adicionales"
-            };
-
-            const serviceID = "service_z1o6u3y"; 
-            const templateID = "template_frf2lkk"; 
-
-            emailjs.send(serviceID, templateID, templateParams)
-                .then(() => {
-                    alert("¡Consulta enviada con éxito!");
-                    formulario.reset(); 
-                })
-                .catch((error) => {
-                    console.error("Error al enviar el correo:", error);
-                    alert("Error de EmailJS: " + (error.text || error.status || JSON.stringify(error)));
-                })
-                .finally(() => {
-                    if (btnSubmit) btnSubmit.innerText = "Enviar Consulta";
-                });
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            alert('¡Mensaje enviado con éxito!');
+            document.getElementById('formulario-contacto').reset();
+        }, (error) => {
+            alert('Error al enviar el mensaje. Por favor, intentalo de nuevo.');
+            console.error('Error EmailJS:', error);
         });
-    }
-
-    console.log("TEGUI Creaciones: JS cargado y listo.");
 });
