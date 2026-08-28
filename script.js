@@ -1,8 +1,8 @@
 document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const serviceID = 'service_z1o6u3y'; 
-    const templateID = 'template_frf2lkk'; 
+    const serviceID = 'service_z1o6u3y';
+    const templateID = 'template_frf2lkk';
 
     emailjs.sendForm(serviceID, templateID, this)
         .then(function() {
