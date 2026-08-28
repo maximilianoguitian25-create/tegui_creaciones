@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // IDs de EmailJS configurados
             const serviceID = "service_z1o6u3y"; 
-            const templateID = "service_z1o6u3y"; // Reemplazar por tu Template ID (ejemplo: template_xxxxx)
+            const templateID = "template_frf2lkk"; // Reemplazar por tu Template ID (ejemplo: template_xxxxx)
 
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
