@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.getElementById('formulario-contacto');
 
+    if (!formulario) return;
+
     formulario.addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -8,14 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const templateID = 'template_frf2lkk';
 
         emailjs.sendForm(serviceID, templateID, this)
-            .then(function(response) {
-                console.log('Éxito:', response.status, response.text);
+            .then(function() {
                 alert('¡Mensaje enviado con éxito!');
                 formulario.reset();
             })
             .catch(function(error) {
-                console.error('Error detallado de EmailJS:', error);
-                alert('Error al enviar el mensaje: ' + JSON.stringify(error));
+                alert('Error al enviar el mensaje. Por favor, intentalo de nuevo.');
+                console.error('Error EmailJS:', error);
             });
     });
 });
