@@ -7,19 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
         formulario.addEventListener("submit", (e) => {
             e.preventDefault(); 
 
-            // Lectura de los datos con los IDs exactos de tu HTML
             const nombre = document.getElementById("nombre").value.trim();
             const telefono = document.getElementById("telefono").value.trim();
             const email = document.getElementById("email").value.trim();
             const productoSelect = document.getElementById("producto-interes");
             const producto = productoSelect.options[productoSelect.selectedIndex].text;
-            const mensaje = document.getElementById("mensaje").value.trim();
-
-            // Cambiar el texto del botón mientras envía
+            const mensaje = document.getElementById("mensa
             const btnSubmit = formulario.querySelector("button[type='submit']");
             if (btnSubmit) btnSubmit.innerText = "Enviando...";
 
-            // Objeto con las variables para tu plantilla de EmailJS
             const templateParams = {
                 nombre: nombre,
                 telefono: telefono,
@@ -28,9 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 mensaje: mensaje || "Sin detalles adicionales"
             };
 
-            // Tus identificadores de EmailJS
             const serviceID = "service_z1o6u3y"; 
-            const templateID = "template_frf2lkk"; // Reemplazá este texto por tu ID (el que empieza con template_)
+            const templateID = "template_frf2lkk"; 
 
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
