@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (formulario) {
         
-        // Envio
+        // Evento de envío del formulario
         formulario.addEventListener("submit", (e) => {
             e.preventDefault(); 
 
@@ -15,17 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const producto = document.getElementById("producto-interes").value;
             const mensaje = document.getElementById("mensaje").value.trim();
 
-            // Vali
+            // Validación de campos requeridos
             if (!nombre || !mensaje) {
                 alert("Por favor, completa los campos obligatorios (Nombre y Mensaje).");
                 return;
             }
 
-            // Cambio boton
+            // Cambiar estado del botón
             const btnSubmit = formulario.querySelector("button[type='submit']");
             if (btnSubmit) btnSubmit.innerText = "Enviando...";
 
-            // Objeto con los datos para la plantilla
+            // Parámetros que se envían a la plantilla
             const templateParams = {
                 nombre: nombre,
                 email: email || "No especificado",
@@ -34,14 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 mensaje: mensaje
             };
 
+            // ATENCIÓN: Reemplazá "service_xxxxxx" y "template_xxxxxx" con tus IDs reales de EmailJS
             emailjs.send("service_xxxxxx", "template_xxxxxx", templateParams)
                 .then(() => {
                     alert("¡Correo enviado con éxito!");
-                    formulario.reset(); // Limp
+                    formulario.reset(); 
                 })
                 .catch((error) => {
                     console.error("Error al enviar el correo:", error);
-                    alert("Ocurrió un error al enviar el mensaje. Inténtalo de nuevo más tarde.");
+                    alert("Error de EmailJS: " + (error.text || JSON.stringify(error)));
                 })
                 .finally(() => {
                     if (btnSubmit) btnSubmit.innerText = "Enviar Consulta";
