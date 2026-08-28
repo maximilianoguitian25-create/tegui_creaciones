@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mensaje: mensaje
             };
 
-            emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", templateParams)
+            emailjs.send("service_xxxxxx", "template_xxxxxx", templateParams)
                 .then(() => {
                     alert("¡Correo enviado con éxito!");
                     formulario.reset(); // Limpieza
