@@ -6,30 +6,30 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Envio
         formulario.addEventListener("submit", (e) => {
-            e.preventDefault(); // Evitamos que la página se recargue por defecto
+            e.preventDefault(); 
 
-            // Lee
+            // Lectura de inputs
             const nombre = document.getElementById("nombre").value.trim();
-            const email = document.getElementById("email").value.trim();
+            const email = document.getElementById("email") ? document.getElementById("email").value.trim() : "";
             const telefono = document.getElementById("telefono").value.trim();
             const producto = document.getElementById("producto-interes").value;
             const mensaje = document.getElementById("mensaje").value.trim();
 
-            // Validacion
-            if (!nombre || !email || !mensaje) {
-                alert("Por favor, completa los campos obligatorios (Nombre, Correo y Mensaje).");
+            // Vali
+            if (!nombre || !mensaje) {
+                alert("Por favor, completa los campos obligatorios (Nombre y Mensaje).");
                 return;
             }
 
-            // enciando 
+            // Cambio boton
             const btnSubmit = formulario.querySelector("button[type='submit']");
             if (btnSubmit) btnSubmit.innerText = "Enviando...";
 
-            // Creamos el objeto con los nombres de variables exactos asignados en la plantilla EmailJS
+            // Objeto con los datos para la plantilla
             const templateParams = {
                 nombre: nombre,
-                email: email,
-                telefono: telefono || "Sin telefono",
+                email: email || "No especificado",
+                telefono: telefono || "Sin teléfono",
                 producto: producto,
                 mensaje: mensaje
             };
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             emailjs.send("service_xxxxxx", "template_xxxxxx", templateParams)
                 .then(() => {
                     alert("¡Correo enviado con éxito!");
-                    formulario.reset(); // Limpieza
+                    formulario.reset(); // Limp
                 })
                 .catch((error) => {
                     console.error("Error al enviar el correo:", error);
