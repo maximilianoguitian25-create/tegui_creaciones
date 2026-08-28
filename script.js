@@ -5,10 +5,10 @@ document.getElementById('formulario-contacto').addEventListener('submit', functi
     const templateID = 'template_frf2lkk'; 
 
     emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
+        .then(function() {
             alert('¡Mensaje enviado con éxito!');
             document.getElementById('formulario-contacto').reset();
-        }, (error) => {
+        }, function(error) {
             alert('Error al enviar el mensaje. Por favor, intentalo de nuevo.');
             console.error('Error EmailJS:', error);
         });
