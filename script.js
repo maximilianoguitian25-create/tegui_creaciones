@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Tus identificadores de EmailJS
             const serviceID = "service_z1o6u3y"; 
-            const templateID = "AQUÍ_TU_TEMPLATE_ID"; // Reemplazá este texto por tu ID (el que empieza con template_)
+            const templateID = "template_frf2lkk"; // Reemplazá este texto por tu ID (el que empieza con template_)
 
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
