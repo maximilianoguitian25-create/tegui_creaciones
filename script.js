@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 mensaje: mensaje || "Sin detalles adicionales"
             };
 
-            // IMPORTANTE: Poné tu Service ID (Sección 5 del PDF) y tu Template ID (Sección 4 del PDF)
-            const serviceID = "TU_SERVICE_ID";   // Ejemplo: "service_a1b2c3d"
-            const templateID = "TU_TEMPLATE_ID"; // Ejemplo: "template_x9y8z7w"
+            // IDs de EmailJS configurados
+            const serviceID = "service_z1o6u3y"; 
+            const templateID = "TU_TEMPLATE_ID"; // Reemplazar por tu Template ID (ejemplo: template_xxxxx)
 
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
