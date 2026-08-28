@@ -8,6 +8,15 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 1. LIBRERÍA DE EMAILJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          // Reemplazá TU_PUBLIC_KEY por la clave que figura en la sección Account de tu panel EmailJS
+          emailjs.init("TU_PUBLIC_KEY"); 
+       })();
+    </script>
 </head>
 
 <body>
@@ -18,10 +27,10 @@
             <p class="subtitulo">Diseños artesanales únicos, pensados con el corazón para acompañarte en cada momento especial.</p>
         
             <nav class="menu-navegacion">
-            <a href="#nosotros">Nosotros</a>
-            <a href="#destacado">Destacado</a>
-            <a href="#stock">Stock</a>
-            <a href="#contacto">Contacto</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#destacado">Destacado</a>
+                <a href="#stock">Stock</a>
+                <a href="#contacto">Contacto</a>
             </nav>
         </div>
         <img src="logo.png" alt="Logo de Tegui Creaciones" class="logo">
