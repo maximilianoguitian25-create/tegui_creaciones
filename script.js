@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const btnSubmit = formulario.querySelector("button[type='submit']");
             if (btnSubmit) btnSubmit.innerText = "Enviando...";
 
-            // Objeto con las variables que coinciden con tu plantilla de EmailJS
+            // Objeto con las variables para tu plantilla de EmailJS
             const templateParams = {
                 nombre: nombre,
                 telefono: telefono,
@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 mensaje: mensaje || "Sin detalles adicionales"
             };
 
-            // IDs de EmailJS configurados
+            // Tus identificadores de EmailJS
             const serviceID = "service_z1o6u3y"; 
-            const templateID = "template_frf2lkk"; // Reemplazar por tu Template ID (ejemplo: template_xxxxx)
+            const templateID = "AQUÍ_TU_TEMPLATE_ID"; // Reemplazá este texto por tu ID (el que empieza con template_)
 
             emailjs.send(serviceID, templateID, templateParams)
                 .then(() => {
-                    alert("¡Correo enviado con éxito!");
+                    alert("¡Consulta enviada con éxito!");
                     formulario.reset(); 
                 })
                 .catch((error) => {
